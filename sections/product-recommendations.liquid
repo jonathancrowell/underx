@@ -1,5 +1,8 @@
+{% include 'section-styling' %}
+
 {%- if section.settings.show_product_recommendations -%}
   {%- if recommendations.performed -%}
+	<div class="page-width">
     {%- if recommendations.products_count > 0 -%}
       <div class="product-recommendations__inner">
         {%- if section.settings.heading != blank -%}
@@ -8,14 +11,15 @@
           </div>
         {%- endif -%}
         <ul class="grid grid--uniform grid--view-items">
-          {%- for product in recommendations.products -%}
-            <li class="grid__item small--one-half medium-up--one-quarter">
+          {%- for product in recommendations.products limit:2 -%}
+            <li class="grid__item small--one-whole medium-up--one-half">
               {% include 'product-card-grid', max_height: 250, product: product, show_vendor: section.settings.show_vendor %}
             </li>
           {%- endfor -%}
         </ul>
       </div>
     {%- endif -%}
+	</div>
   {%- else  -%}
     <div class="page-width" data-base-url="{{ routes.product_recommendations_url }}" data-product-id="{{ product.id }}" data-section-id="{{ section.id }}" data-section-type="product-recommendations"></div>
   {%- endif -%}
@@ -175,6 +179,11 @@
         "zh-TW": "顯示廠商"
       },
       "default": false
+    },
+	{
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color"
     }
   ]
 }

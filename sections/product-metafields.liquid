@@ -15,15 +15,15 @@
         {% when '25%' %}
           {%- assign max_height = 250 -%}
           {%- assign block_width = 'medium-up--one-quarter' -%}
-          {%- assign block_width_mobile = 'small--one-whole' -%}
+          {%- assign block_width_mobile = 'small--one-half' -%}
         {% when '33%' %}
           {%- assign max_height = 345 -%}
           {%- assign block_width = 'medium-up--one-third' -%}
-          {%- assign block_width_mobile = 'small--one-whole' -%}
+          {%- assign block_width_mobile = 'small--one-half' -%}
         {% when '50%' %}
           {%- assign max_height = 530 -%}
           {%- assign block_width = 'medium-up--one-half' -%}
-          {%- assign block_width_mobile = 'small--one-whole' -%}
+          {%- assign block_width_mobile = 'small--one-half' -%}
         {% when '66%' %}
           {%- assign max_height = 720 -%}
           {%- assign block_width = 'two-thirds' -%}
@@ -87,6 +87,24 @@
                     {{ block.settings.button_label | escape }}
                   </a>
                 {%- endif -%}
+              </div>
+          	{% when 'how-to-use' %}
+              <div class="medium-up--text-{{ block.settings.align_text }}">
+                {% if block.settings.title != blank %}
+                  <h4 class="h3">{{ block.settings.title | escape }}</h4>
+                {% endif %}
+                {% if product.metafields.global.how-to-use != blank %}
+                  <div class="rte-setting rte">{{ product.metafields.global.how-to-use }}</div>
+                {% endif %}
+              </div>
+          	{% when 'good-to-know' %}
+              <div class="medium-up--text-{{ block.settings.align_text }}">
+                {% if block.settings.title != blank %}
+                  <h4 class="h3">{{ block.settings.title | escape }}</h4>
+                {% endif %}
+                {% if product.metafields.global.good-to-know != blank %}
+                  <div class="rte-setting rte">{{ product.metafields.global.good-to-know }}</div>
+                {% endif %}
               </div>
             {% when 'video' %}
               <div class="video-wrapper">
@@ -338,29 +356,7 @@
 
 {% schema %}
 {
-  "name": {
-    "cs": "Vlastní obsah",
-    "da": "Tilpasset indhold",
-    "de": "Personalisierter Content",
-    "en": "Custom content",
-    "es": "Contenido personalizado",
-    "fi": "Mukautettu sisältö",
-    "fr": "Contenu personnalisé",
-    "it": "Contenuto personalizzato",
-    "ja": "コンテンツをカスタムする",
-    "ko": "사용자 지정 콘텐츠",
-    "nb": "Tilpasset innhold",
-    "nl": "Aangepaste content",
-    "pl": "Zawartość niestandardowa",
-    "pt-BR": "Conteúdo personalizado",
-    "pt-PT": "Conteúdo personalizado",
-    "sv": "Anpassat innehåll",
-    "th": "เนื้อหาแบบกำหนดเอง",
-    "tr": "Özel içerik",
-    "vi": "Nội dung tùy chỉnh",
-    "zh-CN": "自定义内容",
-    "zh-TW": "自訂內容"
-  },
+  "name": "Metafields",
   "class": "index-section",
   "settings": [
     {
@@ -420,6 +416,178 @@
     }
   ],
   "blocks": [
+	{	
+	  "type": "how-to-use",
+      "name": "How To Use",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Container width",
+          "default": "50%",
+          "options": [
+            {
+              "value": "25%",
+              "label": "25%"
+            },
+            {
+              "value": "33%",
+              "label": "33%"
+            },
+            {
+              "value": "50%",
+              "label": "50%"
+            },
+            {
+              "value": "66%",
+              "label": "66%"
+            },
+            {
+              "value": "75%",
+              "label": "75%"
+            },
+            {
+              "value": "100%",
+              "label": "100%"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Vertical alignment",
+          "default": "center",
+          "options": [
+            {
+              "value": "top-middle",
+              "label": "Top"
+            },
+            {
+              "value": "center",
+              "label": "Middle"
+            },
+            {
+              "value": "bottom-middle",
+              "label": "Bottom"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "align_text",
+          "label": "Horizontal alignment",
+          "default": "left",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+
+            },
+            {
+              "value": "center",
+              "label": "Centered"
+
+            },
+            {
+              "value": "right",
+              "label": "Right"
+
+            }
+          ]
+        }
+      ]
+    },
+	{	
+	  "type": "good-to-know",
+      "name": "Good To Know",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Container width",
+          "default": "50%",
+          "options": [
+            {
+              "value": "25%",
+              "label": "25%"
+            },
+            {
+              "value": "33%",
+              "label": "33%"
+            },
+            {
+              "value": "50%",
+              "label": "50%"
+            },
+            {
+              "value": "66%",
+              "label": "66%"
+            },
+            {
+              "value": "75%",
+              "label": "75%"
+            },
+            {
+              "value": "100%",
+              "label": "100%"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Vertical alignment",
+          "default": "center",
+          "options": [
+            {
+              "value": "top-middle",
+              "label": "Top"
+            },
+            {
+              "value": "center",
+              "label": "Middle"
+            },
+            {
+              "value": "bottom-middle",
+              "label": "Bottom"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "align_text",
+          "label": "Horizontal alignment",
+          "default": "left",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+
+            },
+            {
+              "value": "center",
+              "label": "Centered"
+
+            },
+            {
+              "value": "right",
+              "label": "Right"
+
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "text",
       "name": {

@@ -43,7 +43,31 @@
   </noscript>
 
   <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
-
+  <div class="product__absorbency">
+    {% assign absorbNum = product.metafields.global.absorbNum | times:1 %}
+    {% for i in (1..8) %}
+      {% if i <= absorbNum %}
+        <svg width="7%" viewbox="0 0 30 42">
+          <path fill="#549139" stroke="transparent" stroke-width="1.5"
+                d="M15 3
+                   Q16.5 6.8 25 18
+                   A12.8 12.8 0 1 1 5 18
+                   Q13.5 6.8 15 3z" />
+        </svg>
+      {% else %}
+        <svg width="7%" viewbox="0 0 30 42">
+          <path fill="#efefef" stroke="transparent" stroke-width="1.5"
+                d="M15 3
+                   Q16.5 6.8 25 18
+                   A12.8 12.8 0 1 1 5 18
+                   Q13.5 6.8 15 3z" />
+        </svg>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <span class="product-card__excerpt">{{ product.metafields.global.excerpt }}</span>
+  {% comment %}
   {% include 'product-price-listing', product: product, show_vendor: show_vendor %}
+  {% endcomment %}
 
 </div>

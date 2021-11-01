@@ -23,8 +23,11 @@
                 <div class="cart__product-information">
                   <div class="cart__image-wrapper">
                     <img class="cart__image{% if item.image == null %} hide{% endif %}" src="{{ item | img_url: 'x190' }}" alt="{{ item.image.alt | escape }}" data-cart-item-image>
+                    <p class="cart__remove" style="text-align:center;">
+                      <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="btn btn--small" aria-label="{{ 'cart.label.remove' | t: product: item.title }}" data-cart-remove data-role="product-remove">{{ 'cart.general.remove' | t }}</a>
+                    </p>
                   </div>
-                  <div>
+                  <div class="cart__title-wrapper">
                     <div class="list-view-item__title">
                       <a href="{{ item.url }}" class="cart__product-title" data-cart-item-title data-role="product-title">
                         {{ item.product.title }}
@@ -47,7 +50,7 @@
                         {% if item.selling_plan_allocation == empty %} hide {% endif %}"
                         data-cart-item-selling-plan-name
                       >
-                        {{ item.selling_plan_allocation.selling_plan.name }}
+                        <u>{{ item.selling_plan_allocation.selling_plan.name }}</u>
                       </li>
 
                       {%- comment -%}
@@ -85,9 +88,7 @@
                       {%- endfor -%}
                     </ul>
 
-                    <p class="cart__remove">
-                      <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="text-link text-link--accent" aria-label="{{ 'cart.label.remove' | t: product: item.title }}" data-cart-remove data-role="product-remove">{{ 'cart.general.remove' | t }}</a>
-                    </p>
+                    
                   </div>
                 </div>
               </td>

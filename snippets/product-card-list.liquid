@@ -17,7 +17,7 @@
     <div class="list-view-item__image-column">
       <div class="list-view-item__image-wrapper product-card__image-wrapper">
       {% unless product.featured_media == null %}
-        <img class="list-view-item__image" src="{{ product.featured_media | img_url: '95x95', scale: 2 }}" alt="{{ product.featured_media.alt }}">
+        <img class="list-view-item__image" src="{{ product.featured_media | img_url: '275x275', scale: 2 }}" alt="{{ product.featured_media.alt }}">
       {% endunless %}
       </div>
     </div>
@@ -25,14 +25,47 @@
     <div class="list-view-item__title-column">
       <div class="list-view-item__title" aria-hidden="true">
         <span class="product-card__title">{{ product.title }}</span>
+        <div class="product__absorbency">
+          {% assign absorbNum = product.metafields.global.absorbNum | times:1 %}
+          {% for i in (1..8) %}
+            {% if i <= absorbNum %}
+              <svg width="7%" viewbox="0 0 30 42">
+                <path fill="#549139" stroke="transparent" stroke-width="1.5"
+                      d="M15 3
+                         Q16.5 6.8 25 18
+                         A12.8 12.8 0 1 1 5 18
+                         Q13.5 6.8 15 3z" />
+              </svg>
+            {% else %}
+              <svg width="7%" viewbox="0 0 30 42">
+                <path fill="#efefef" stroke="transparent" stroke-width="1.5"
+                      d="M15 3
+                         Q16.5 6.8 25 18
+                         A12.8 12.8 0 1 1 5 18
+                         Q13.5 6.8 15 3z" />
+              </svg>
+            {% endif %}
+          {% endfor %}
+
+        </div>
+        <span class="product-card__excerpt">{{ product.metafields.global.excerpt }}</span>
       </div>
       {% if show_vendor %}
         <div class="list-view-item__vendor">{{ product.vendor }}</div>
       {% endif %}
     </div>
-
+	
+    {% if product.metafields.global.icon %}
+    <div class="list-view-item__icon">
+      <img src="{{ product.metafields.global.icon }}" style="width:100px;"><br>
+      <div style="width:100px; font-weight:bold;margin-left:auto; text-align:center;">{{ product.metafields.global.cat }}</div>
+    </div>
+    {% endif %}
+    
+    {% comment %}
     <div class="list-view-item__price-column">
       {% include 'product-price-listing', product: product, show_vendor: false %}
     </div>
+    {% endcomment %}
   </div>
 </div>

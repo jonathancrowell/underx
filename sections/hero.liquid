@@ -39,6 +39,11 @@
               {{ section.settings.button_label | escape }}
             </a>
           {%- endif -%}
+          {%- if section.settings.find_your_fit != blank -%}
+            <a href="{{ section.settings.quiz_href }}" class="btn hero__btn rh-share button" data-mode="button" target="_blank">
+              {{ section.settings.button_fit }}
+            </a> 
+          {%- endif -%}
         </div>
       </div>
       {%- if section.settings.image != blank -%}
@@ -111,7 +116,17 @@
               {{- section.settings.button_label | escape -}}
             </a>
           {%- endif -%}
+          {%- if section.settings.find_your_fit != blank -%}
+            <a href="{{ section.settings.quiz_href }}" class="btn hero__btn rh-share button" data-mode="button" target="_blank">
+              {{ section.settings.button_fit }}
+            </a> 
+          {%- endif -%}
         </div>
+        {%- if section.settings.arrow != blank -%}
+          <a data-scroll href="{{ section.settings.arrow_href }}">
+            <div class="arrow"></div>
+          </a>
+        {%- endif -%}
       </div>
     </div>
     <noscript>
@@ -788,7 +803,34 @@
         "zh-CN": "按钮链接",
         "zh-TW": "按鈕連結"
       }
-    }
+    },
+	{
+      "type": "checkbox",
+      "id": "find_your_fit",
+      "label": "Add quiz button"
+	},
+	{
+      "type": "text",
+      "id": "button_fit",
+      "label": "Quiz button text"
+	},
+	{
+      "type": "text",
+      "id": "quiz_href",
+      "label": "Quiz href",
+	  "default": "#quiz-7jH2Oz"
+	},
+	{
+      "type": "checkbox",
+      "id": "arrow",
+      "label": "Add down arrow"
+	},
+	{
+      "type": "text",
+      "id": "arrow_href",
+      "label": "Arrow href",
+	  "default": "#shopify-section-feature-row"
+	}
   ],
   "presets": [
     {
