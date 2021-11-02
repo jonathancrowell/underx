@@ -1,0 +1,172 @@
+html{scroll-behavior: smooth;}
+
+
+/* Hero Section */
+
+.template-index #shopify-section-hero-1 .hero__inner{
+  height:calc(100vh - 130px) !important; }
+
+  @media only screen and (min-width: 750px) {
+    .template-index #shopify-section-hero-1 .hero__inner .mega-title{
+      margin-top:15vh; } }
+
+.rh-share{
+  margin-left:20px; }
+
+  @media only screen and (max-width: 749px) {
+	.rh-share{
+  	  margin-left:0px; } }
+
+.arrow {
+  box-sizing: border-box;
+  height: 3vw;
+  width: 3vw;
+  border-style: solid;
+  border-color: white;
+  border-width: 0px 3px 3px 0px;
+  transition: border-width 150ms ease-in-out;
+  position: absolute;
+  bottom: 55px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.arrow:hover {
+  border-bottom-width: 6px;
+  border-right-width: 6px;
+}
+
+
+
+/* Feature Row Section */
+
+.feature-row__image-wrapper{
+  margin-bottom:0px; }
+
+
+
+/* Home Page Collection Section */
+
+.template-index #shopify-section-collection{
+  margin-bottom:55px; }
+
+
+
+/* PDP Buttons - Currently Unused 
+
+div.selectbtn {
+  display : inline-block;
+  background-color : #ffffff;
+  border : 1px solid #000;
+  padding : 3px 5px;
+  margin-right : 5px;
+  margin-bottom : 5px;
+  cursor: pointer;
+  text-align:center; }
+
+div.selectbtn.selected {
+  background-color : #eaeaea;
+  border: 2px solid #69b647;
+  margin-top:-1px; }
+
+.product-form__item.selector__Count .selectbtn{
+  flex-basis:calc(50% - 5px); }
+
+.product-form__item.selector__Size .selectbtn{
+  flex-basis:calc(33% - 5px); } */
+
+
+
+/* PLP Cards */
+
+.product-card__title{
+  font-size:22px; }
+
+.product-card__excerpt{
+  font-weight:normal; }
+
+
+
+/* PDP Product Information */
+
+.product__absorbency{
+  max-width:300px; }
+
+.product__excerpt{
+  margin-top:0.5em;
+  font-size:14px;
+  flex-basis: 70%; }
+
+.selector__quantity {
+  flex-basis:30%; }
+
+.selector__quantity .product-form__item{
+  justify-content:flex-end; }
+
+.selector__quantity .product-form__item label{
+  text-align:right; }
+
+.selector__quantity input{
+  min-width:5rem; }
+
+
+
+/* ReCharge Widget */
+
+.rc_container{
+  margin-bottom:0 !important; }
+
+.rc_popup{
+  display:none !important; }
+
+.rc_widget__option{
+  padding-top:0 !important;
+  padding-bottom:0 !important; }
+
+.rc_widget__option__plans{
+  padding:0px 0px 8px 23px !important; }
+
+.rc_widget__option__plans select{
+  font-size:14px; }
+
+
+/* PDP Add To Cart Form */
+
+.product-form__item{
+  display:flex;
+  flex-wrap:wrap; }
+
+.product-form__item label{
+  flex-basis:100%;
+  flex-shrink:0;
+  font-size:14px; }
+
+
+
+/* Product Details Metafield Section */
+
+#shopify-section-product-details .featured-row__subtext{
+  font-size:18px !important; }
+
+/* Stamped Widget */
+
+.selector__reviews{
+  flex-basis:60%;
+  flex-direction:column; }
+
+.selector__reviews > div{
+  margin-top:0 !important; }
+
+.stamped-content, .stamped-summary{
+  font-family:Ubuntu !important; }
+
+.stamped-reviews-filter{
+  margin-top:10px !important; }
+
+/* Site Footer */
+
+.template-product .site-footer{
+  margin-top:0px; }
+
+
+
